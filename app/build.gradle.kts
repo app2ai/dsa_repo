@@ -5,7 +5,7 @@ plugins {
 
 android {
     namespace = "com.toffee.dsastudy"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.toffee.dsastudy"
