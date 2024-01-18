@@ -14,10 +14,15 @@ fun main() {
     // val allMissingValues = CycleSort.findAllMissingNumbersFromAnArray(list3)
     // println("From list $list3 All missing numbers are $allMissingValues")
 
-    // TODO find duplicate number
+    // find duplicate number
     val list4 = mutableListOf<Int>(4,1,6,2,8,1,3,6) // [1, 6]
-    val allDuplicateValues = CycleSort.findAllTheDuplicateNumbersFromAnArray(list4)
-    println("From list $list4 All duplicate numbers are $allDuplicateValues")
+    // val allDuplicateValues = CycleSort.findAllTheDuplicateNumbersFromAnArray(list4)
+    // println("From list $list4 All duplicate numbers are $allDuplicateValues")
+
+    // find mismatch numbers -> ex [1,2,2,4] -> [2,3] & [1,1] ->[2]
+    val list5 = mutableListOf<Int>(1,2,2,4,4,6) // [2, 3]
+    val allMismatchedNumber = CycleSort.findAllMismatchedNumbersFromAnArray(list5)
+    println("From list $list5 All mismatched numbers are $allMismatchedNumber")
 }
 
 object CycleSort {
@@ -95,6 +100,17 @@ object CycleSort {
             }
         }
         return dupArr
+    }
+
+    fun findAllMismatchedNumbersFromAnArray(arr: MutableList<Int>): MutableSet<Int>{
+        val ll = mutableSetOf<Int>()
+        for (i in 0..<arr.size){
+            if (arr[i] != i+1){
+                ll.add((arr[i]))
+                ll.add(i+1)
+            }
+        }
+        return ll
     }
 
     private fun swap(arr: MutableList<Int>, key: Int, indexOfKeyThValue: Int) {
